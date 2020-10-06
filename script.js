@@ -1,42 +1,55 @@
 /* globals firebase */
 
 // Get a reference to the database service
-var database = firebase.database();
+var shareddatabase = firebase.database();
 
-function setMyname(name) {
-  database.ref("ourname").set({
-    name: name
+
+// sets my name using the reference "ourname".
+function setOurname(thisname) {
+  
+  // from the database, find the reference(key/lookup code) of "ourname",
+  // and set the 'name' of it to 'thisname', which was a parameter received to this function.
+  shareddatabase.ref("ourname").set({
+    name: thisname
   });
 }
 
+
+// get the current age and adds a number to it.
 function addAge(number) {
+  
+  // get the current Age as displayed on the website, and try to convert it to a number!
   var currentAge = parseInt($("#currentAge").text());
   
-  if(currentAge == "") { currentAge = 0; }
+  // after trying to convert it, if currentAge is not a number... then let's just set it to zero
+  // (isNaN is a special function that checks if an object is a number or not)
+  if(isNaN(currentAge)) { currentAge = 0; }
   
-  database.ref("ourage").set({
+
+  // set our age in the shared database!
+  shareddatabase.ref("ourage").set({
     age: currentAge + number
   });
-
   
 }
+
+
 
 
 $(document).ready(function() {
 
-  database.ref("ourname").on("value", function(snapshot) {
+  shareddatabase.ref("ourname").on("value", function(snapshot) {
     $("#currentName").text(snapshot.val().name);
   });
   
-  database.ref("ourage").on("value", function(snapshot) {
+  shareddatabase.ref("ourage").on("value", function(snapshot) {
     $("#currentAge").text(snapshot.val().age);
   });
   
   
   $("#setName").click(function() {
     //alert("what");
-    setMyname($("#nameInput").val());
-    console.log("settingmyanme");
+    setOurname($("#nameInput").val());
   });
 
   $("#addAge").click(function() {
