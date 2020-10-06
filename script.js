@@ -38,13 +38,6 @@ function addAge(number) {
 
 $(document).ready(function() {
 
-  shareddatabase.ref("ourname").on("value", function(snapshot) {
-    $("#currentName").text(snapshot.val().name);
-  });
-  
-  shareddatabase.ref("ourage").on("value", function(snapshot) {
-    $("#currentAge").text(snapshot.val().age);
-  });
   
   
   $("#setName").click(function() {
@@ -52,6 +45,14 @@ $(document).ready(function() {
     setOurname($("#nameInput").val());
   });
 
+  
+  shareddatabase.ref("ourname").on("value", function(snapshot) {
+    $("#currentName").text(snapshot.val().name);
+  });
+  
+  
+  
+  
   $("#addAge").click(function() {
     addAge(2);
   })
@@ -60,4 +61,11 @@ $(document).ready(function() {
     addAge(-2);
   })
 
+  
+  shareddatabase.ref("ourage").on("value", function(snapshot) {
+    $("#currentAge").text(snapshot.val().age);
+  });
+  
+  
+  
 });
