@@ -9,26 +9,31 @@ function setMyname(name) {
   database.ref("myname").set({
     name: name,
   });
+  console.log("ok")
 }
+
 
 
 
 $(document).ready(function() {
   
+
+  
   
   $("#setName").click(function() {
   
       //alert("what");
-      setMyname("dan");
+      setMyname($("#nameInput").val());
+    console.log("settingmyanme")
   })
 
   
   
-  var starCountRef = firebase.database().ref('myname');
-  starCountRef.on('value', function(snapshot) {
-    $("#currentName").text("whoo");
-  });
-
+  database
+    .ref('myname')
+    .on('value', function(snapshot) {
+      $("#currentName").text(snapshot.val().name);
+    });
 
   
 })

@@ -12,9 +12,10 @@
   <body>
     <h1>Hi there!</h1>
   
+    Our collective name is: <div id="currentName"></div> 
     
-    <input id="name" />
     
+    <input id="nameInput" />    
     <button id="setName">
       setName
     </button>
@@ -29,15 +30,15 @@
     </button>
     
   
-    <div id="currentName"></div> 
     
     
     
     <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    
+  <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-database.js"></script>
 
 <script>
   // Your web app's Firebase configuration
@@ -54,7 +55,6 @@
   firebase.initializeApp(firebaseConfig);
 </script>
 
-<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-database.js"></script>
     
   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 
