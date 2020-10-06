@@ -6,24 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css">
     
-    <!-- import the webpage's javascript file -->
-    <script src="/script.js" defer></script>
   </head>  
   <body>
     <h1>Hi there!</h1>
     
-    <p>
-      I'm your cool new webpage. Made with 
-      <a href="https://glitch.com">Glitch</a> 
-      and Firebase!
-    </p>
+    
+    
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
 
-    <!-- include the Glitch button to show what the webpage is about and
-          to make it easier for folks to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
-    <script src="https://button.glitch.me/button.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyB5Ibrm5Wp6cAruVRLSXoxnjOYE3FpDTxw",
+    authDomain: "metatool-firebase.firebaseapp.com",
+    databaseURL: "https://metatool-firebase.firebaseio.com",
+    projectId: "metatool-firebase",
+    storageBucket: "metatool-firebase.appspot.com",
+    messagingSenderId: "576952752264",
+    appId: "1:576952752264:web:c97e4a80cb7b64dbfd673d"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+    
+  <!-- this loads in a library called jQuery! jQuery is a library built on top of javascript that makes javascript easier to use. -->
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+
+  <script src="/script.js"></script>
+    
   </body>
 </html>
