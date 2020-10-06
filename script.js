@@ -39,26 +39,42 @@ function addAge(number) {
 $(document).ready(function() {
 
   
-  
+  // when we click on it, change teh database
   $("#setName").click(function() {
     //alert("what");
     setOurname($("#nameInput").val());
   });
 
-  
+  // when the database changes, change the website  
   shareddatabase.ref("ourname").on("value", function(snapshot) {
     $("#currentName").text(snapshot.val().name);
+  });
+  
+  
+    
+  // when we click on it, change teh database
+  $("#setLastName").click(function() {
+    //alert("what");
+    
+    shareddatabase.ref("ourlastname").set({
+      name: $("#lastnameInput").val()
+    });
+  });
+
+  // when the database changes, change the website  
+  shareddatabase.ref("ourlastname").on("value", function(snapshot) {
+    $("#currentLastName").text(snapshot.val().name);
   });
   
   
   
   
   $("#addAge").click(function() {
-    addAge(2);
+    addAge(100);
   })
 
   $("#subtractAge").click(function() {
-    addAge(-2);
+    addAge(-100);
   })
 
   
