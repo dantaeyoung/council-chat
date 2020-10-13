@@ -4,17 +4,6 @@
 var shareddatabase = firebase.database();
 
 
-// sets my name using the reference "ourname".
-function setOurname(thisname) {
-  
-  // from the database, find the reference(key/lookup code) of "ourname",
-  // and set the 'name' of it to 'thisname', which was a parameter received to this function.
-  shareddatabase.ref("ourname").set({
-    name: thisname
-  });
-}
-
-
 // get the current age and adds a number to it.
 function addAge(number) {
   
@@ -42,7 +31,14 @@ $(document).ready(function() {
   // when we click on it, change teh database
   $("#setName").click(function() {
     //alert("what");
-    setOurname($("#nameInput").val());
+    
+    // from the database, find the reference(key/lookup code) of "ourname" (this is created arbitrarily)
+    // and set the 'name' of it to $("#nameInput").val(), which the contents of the input.
+ 
+    shareddatabase.ref("ourname").set({
+      name: $("#nameInput").val()
+    });
+    
   });
 
   // when the database changes, change the website  
@@ -51,20 +47,7 @@ $(document).ready(function() {
   });
   
   
-    
-  // when we click on it, change teh database
-  $("#setLastName").click(function() {
-    //alert("what");
-    
-    shareddatabase.ref("ourlastname").set({
-      name: $("#lastnameInput").val()
-    });
-  });
 
-  // when the database changes, change the website  
-  shareddatabase.ref("ourlastname").on("value", function(snapshot) {
-    $("#currentLastName").text(snapshot.val().name);
-  });
   
   
   

@@ -1,4 +1,4 @@
-metatool-shared-database-intro
+metatool-shared-database-intro.glitch.me
 ==================
 
 This is an introduction to using Firebase and Glitch!
