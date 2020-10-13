@@ -40,10 +40,15 @@ $(document).ready(function() {
     });
     
   });
+  
+  
 
   // when the database changes, change the website  
   shareddatabase.ref("ourname").on("value", function(snapshot) {
     $("#currentName").text(snapshot.val().name);
+    
+    console.log( snapshot.val() );
+    
   });
   
   
