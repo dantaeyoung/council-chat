@@ -23,13 +23,8 @@ function addAge(number) {
 }
 
 
-
-
-$(document).ready(function() {
-
+function sendMessage() {
   
-  // when we click on it, change teh database
-  $("#sendMessage").click(function() {
     
     const timestamp = Date.now();
 
@@ -37,8 +32,23 @@ $(document).ready(function() {
       username: $("#nameInput").val(),
       message: $("#messageInput").val()
     });
-    
+  
+  $("#messageInput").val('');
+   
+}
+
+
+$(document).ready(function() {
+
+  
+  $("#messageInput").keypress(function() {
+      if ( event.which == 13 ) {
+       sendMessage();
+      }
   });
+  
+  // when we click on it, change teh database
+  $("#sendMessage").click(sendMessage);
   
   
 
@@ -46,37 +56,16 @@ $(document).ready(function() {
   shareddatabase.ref("messages/").on("child_added", function(snapshot) {
     const messages = snapshot.val();
     
-    const html = `<li class=${
-username === messages.username ? "sent" : "receive"
-  }><span>${messages.username}: </span>${messages.message}</li>`;
-  // append the message on the page
+    const msghtml = `<li><span class="username">${messages.username}</span>${messages.message}</li>`;
     
-  document.getElementById("messages").innerHTML += message;
+    document.getElementById("messages").innerHTML += msghtml;
 
-    
     console.log( snapshot.val() );
     
   });
   
   
 
-  
-  
-  
-  
-  $("#addAge").click(function() {
-    addAge(100);
-  })
-
-  $("#subtractAge").click(function() {
-    addAge(-100);
-  })
-
-  
-  shareddatabase.ref("ourage").on("value", function(snapshot) {
-    $("#currentAge").text(snapshot.val().age);
-  });
-  
   
   
 });
