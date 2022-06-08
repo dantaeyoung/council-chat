@@ -2,65 +2,51 @@
 <html lang="en">
   <head>
     <title>Hello Firebase 🔥</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link rel="stylesheet" href="/style.css">
-    
-  </head>  
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="/style.css" />
+  </head>
   <body>
-    <h1>Hi there!</h1>
-  
-    Our collective name is: <div id="currentName" class="bubble"></div> 
+ 
     
-    
-    <input id="nameInput" />    
-    <button id="setName">
-      setName
-    </button>
-    
-   
+    <div class="chatArea">
+      
+          <ul id="messages"></ul>
+        </div>
+        
+
+    Name: <input id="nameInput" /> 
+    Message: <input id="messageInput" />
+    <button id="sendMessage">sendMessage</button>
+
     <hr />
     
     
-    We are <div id="currentAge" class="bubble"></div> years old.
-    
-    
-    <button id="subtractAge">-</button>
-    <button id="addAge">+</button>
-    
-   
-    
-    
-  
-    
-    
-    
-    
-<!-- FIREBASE START -->
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-database.js"></script>
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyB5Ibrm5Wp6cAruVRLSXoxnjOYE3FpDTxw",
-    authDomain: "metatool-firebase.firebaseapp.com",
-    databaseURL: "https://metatool-firebase.firebaseio.com",
-    projectId: "metatool-firebase",
-    storageBucket: "metatool-firebase.appspot.com",
-    messagingSenderId: "576952752264",
-    appId: "1:576952752264:web:c97e4a80cb7b64dbfd673d"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
-<!-- FIREBASE END -->
-    
-  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 
-  <script src="/script.js"></script>
-    
+    <!-- FIREBASE START -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-database.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+     const firebaseConfig = {
+        apiKey: "AIzaSyCi57ZRq36AHlDF-V5hYDPB17p7JwyTYaY",
+        authDomain: "council-chat-4cbe2.firebaseapp.com",
+        databaseURL: "https://council-chat-4cbe2-default-rtdb.firebaseio.com",
+        projectId: "council-chat-4cbe2",
+        storageBucket: "council-chat-4cbe2.appspot.com",
+        messagingSenderId: "736200801058",
+        appId: "1:736200801058:web:af1e7a3e60de37c916437b"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <!-- FIREBASE END -->
+
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+
+    <script src="/script.js"></script>
   </body>
 </html>

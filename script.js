@@ -29,14 +29,13 @@ $(document).ready(function() {
 
   
   // when we click on it, change teh database
-  $("#setName").click(function() {
-    //alert("what");
+  $("#sendMessage").click(function() {
     
-    // from the database, find the reference(key/lookup code) of "ourname" (this is created arbitrarily)
-    // and set the 'name' of it to $("#nameInput").val(), which the contents of the input.
- 
-    shareddatabase.ref("ourname").set({
-      name: $("#nameInput").val()
+    const timestamp = Date.now();
+
+    shareddatabase.ref("messages/" + timestamp).set({
+      username: $("#nameInput").val(),
+      message: $("#messageInput").val()
     });
     
   });
@@ -44,8 +43,16 @@ $(document).ready(function() {
   
 
   // when the database changes, change the website  
-  shareddatabase.ref("ourname").on("value", function(snapshot) {
-    $("#currentName").text(snapshot.val().name);
+  shareddatabase.ref("messages/").on("child_added", function(snapshot) {
+    const messages = snapshot.val();
+    
+    const html = `<li class=${
+username === messages.username ? "sent" : "receive"
+  }><span>${messages.username}: </span>${messages.message}</li>`;
+  // append the message on the page
+    
+  document.getElementById("messages").innerHTML += message;
+
     
     console.log( snapshot.val() );
     
