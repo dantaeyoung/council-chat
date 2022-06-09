@@ -8,25 +8,21 @@
 
     <link rel="stylesheet" href="/style.css" />
     <script src="https://unpkg.com/vue@3"></script>
-
-    
   </head>
   <body>
+    <div id="app">
+      <div class="chatArea">
+        <div id="messages"></div>
+      </div>
+
+      Name: <input id="nameInput" /> Message: <input id="messageInput" />
+      <button id="sendMessage">sendMessage</button>
+
+      <hr />
+      {{ message }}
+    </div>
+
  
-    
-    <div class="chatArea">
-      
-          <div id="messages"></div>
-        </div>
-        
-
-    Name: <input id="nameInput" /> 
-    Message: <input id="messageInput" />
-    <button id="sendMessage">sendMessage</button>
-
-    <hr />
-    
-    
 
     <!-- FIREBASE START -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -34,14 +30,14 @@
     <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-database.js"></script>
     <script>
       // Your web app's Firebase configuration
-     const firebaseConfig = {
+      const firebaseConfig = {
         apiKey: "AIzaSyCi57ZRq36AHlDF-V5hYDPB17p7JwyTYaY",
         authDomain: "council-chat-4cbe2.firebaseapp.com",
         databaseURL: "https://council-chat-4cbe2-default-rtdb.firebaseio.com",
         projectId: "council-chat-4cbe2",
         storageBucket: "council-chat-4cbe2.appspot.com",
         messagingSenderId: "736200801058",
-        appId: "1:736200801058:web:af1e7a3e60de37c916437b"
+        appId: "1:736200801058:web:af1e7a3e60de37c916437b",
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);

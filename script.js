@@ -1,4 +1,13 @@
-/* globals firebase */
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            message: "Hello Vue!",
+          };
+        },
+      }).mount("#app");
+
 
 // Get a reference to the database service
 var shareddatabase = firebase.database();
